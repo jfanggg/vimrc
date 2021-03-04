@@ -7,7 +7,7 @@ set expandtab                                                         " insert s
 
 set backspace=indent,eol,start
 set ruler                                                             " display horizontal cursor info
-set number                                                            " turn on line numbers
+set number relativenumber                                             " hybrid line numbers
 set showcmd                                                           " display command you're typing
 set incsearch                                                         " search while typing
 set noshowmode                                                        " turn off default mode indicator (replaced by vim-airline)
@@ -26,13 +26,9 @@ hi CursorLineNr cterm=bold ctermfg=32
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'
 
 call plug#end()
@@ -41,19 +37,6 @@ call plug#end()
                                                                       " toggle NERDtree with \t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 let g:NERDTreeWinSize=35                                              " change size of NERDTree window
-
-" ----- plugin: vim-easytags -----
-set tags=./tags;,~/.vimtags                                           " Where to look for tags files
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
-
-" ----- plugin: tagbar -----
-                                                                      " toggle tagbar with \b
-nmap <silent> <leader>b :TagbarToggle<CR>
-let g:tagbar_width = 30
 
 " ----- plugin: delimitMate -----
 let delimitMate_expand_cr = 1
@@ -70,12 +53,6 @@ set laststatus=2                                                      " always s
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
-
-" ----- plugin: Goyo -----
-let g:goyo_width=100
-let g:goyo_margin_top=2
-let g:goyo_margin_bottom=2
-nnoremap <silent> <leader>z :Goyo<CR>
 
 " ===== Keybindings  =====
 
